@@ -1,8 +1,13 @@
-/* ==================================================
+/*Author:Mitchell Hess
+      Date:September 23, 2026
+
+      Filename: styles.css
+
+   ==================================================
    TIMED PRACTICE QUIZ - STYLESHEET
    ==================================================
    Styles for a layout-responsive quiz application with:
-   - Sidebar (left) for setup and participant summary
+   - Sidebar (left) for timer, setup and participant summary
    - Main content area (right) for quiz and results
    - Mobile-responsive design
    - Timer display and countdown styling
@@ -10,18 +15,19 @@
 
 /* Reset and base styles */
 * {
-  box-sizing: border-box; /* Include padding/border in element sizing */
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fb; /* Light blue background */
-  color: #1f2937; /* Dark gray text */
+  background: #f5f7fb;
+  color: #1f2937;
 }
+
 /* Page header */
 header {
-  background: #1f3c88; /* Dark blue header */
+  background: #1f3c88;
   color: #fff;
   padding: 24px 16px;
   text-align: center;
@@ -29,21 +35,53 @@ header {
 
 /* Main content container */
 main {
-  max-width: 960px; /* Limit width on large screens */
+  max-width: 960px;
   margin: 0 auto;
   padding: 24px 16px 40px;
 }
+
 /* Two-column layout: fixed-width sidebar + flexible main area */
 .app-grid {
   display: grid;
-  grid-template-columns: 320px 1fr; /* 320px sidebar, remaining space for quiz */
+  grid-template-columns: 320px 1fr;
   gap: 20px;
   align-items: start;
 }
+
 /* Sidebar sections spacing */
 .sidebar .setup-section,
 .sidebar .summary-section {
   margin-bottom: 16px;
+}
+
+/* Timer display box */
+.timer-box {
+  min-width: 140px;
+  margin-bottom: 16px;
+  padding: 14px 12px;
+  text-align: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #eef4ff 0%, #e6f0ff 100%);
+  border: 1px solid #c8d8f2;
+  box-shadow: 0 4px 12px rgba(31, 60, 136, 0.08);
+}
+
+/* Timer label */
+.timer-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Timer display field */
+#quizClock {
+  width: 80px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: #1f3c88;
 }
 
 /* Card-style section container */
@@ -53,8 +91,9 @@ section {
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Subtle shadow for depth */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
+
 /* Section headings */
 h2 {
   margin-top: 0;
@@ -75,6 +114,7 @@ label {
   margin-bottom: 6px;
   font-weight: 600;
 }
+
 /* Text inputs and selects */
 input[type="text"],
 select {
@@ -87,14 +127,15 @@ select {
   background: #fff;
 }
 
-/* Question input styling - narrower for answer boxes */
+/* Question input styling */
 .question-input input[type="text"],
 .question-row input[type="text"] {
-  max-width: 120px; /* Limit width for answer inputs */
+  max-width: 120px;
   width: 100%;
   padding: 8px 10px;
   font-size: 1rem;
 }
+
 /* Button styling */
 button {
   background: #1f3c88;
@@ -108,12 +149,13 @@ button {
 
 /* Button hover state */
 button:hover {
-  background: #17306f; /* Darker blue on hover */
+  background: #17306f;
 }
+
 /* Error message display */
 .error-box {
   min-height: 22px;
-  color: #b42318; /* Red text for errors */
+  color: #b42318;
   font-weight: 600;
   margin: 8px 0 12px;
 }
@@ -123,75 +165,20 @@ button:hover {
 .results-section p {
   margin: 8px 0;
 }
-/* Quiz header with title and timer */
+
+/* Quiz header */
 .quiz-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
   margin-bottom: 18px;
 }
 
-/* Timer display box */
-.timer-box {
-  min-width: 140px;
-  padding: 14px 12px;
-  text-align: center;
-  border-radius: 12px;
-  background: linear-gradient(180deg, #eef4ff 0%, #e6f0ff 100%); /* Blue gradient background */
-  border: 1px solid #c8d8f2;
-  box-shadow: 0 4px 12px rgba(31, 60, 136, 0.08);
-}
-
-/* Timer display field */
-#quizClock {
-  width: 80px;
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  border: none;
-  background: transparent;
-  color: #1f3c88;
-} /* Questions container */
+/* Questions container */
 .questions-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px; /* Space between question rows */
+  gap: 12px;
 }
 
 /* Question row wrapper */
-.question-row {
-  padding: 0; /* Inner spacing handled by .question-content */
-  border: none;
-  background: transparent;
-}
-
-/* Question card container */
-.question-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #fff;
-}
-
-/* Question text */
-.question-text {
-  flex: 1 1 auto; /* Expand to fill available space */
-  font-weight: 600;
-  color: #0f172a;
-}
-
-/* Question input area */
-.question-input {
-  flex: 0 0 140px; /* Fixed width for answer inputs */
-  display: flex;
-  align-items: center;
-}
-/* Question row background */
 .question-row {
   padding: 14px;
   border: 1px solid #e5e7eb;
@@ -199,35 +186,67 @@ button:hover {
   background: #fafbfc;
 }
 
+/* Question card container */
+.question-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Question number label */
+.question-number {
+  font-weight: 700;
+  color: #1f3c88;
+}
+
+/* Question text */
+.question-text {
+  width: 100%;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Question input area */
+.question-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
 /* Styling for incorrect answers */
 .question-row input.wronganswer {
-  background: #fde8e8; /* Light red background */
+  background: #fde8e8;
   border-color: #f5a5a5;
-  color: #991b1b; /* Dark red text */
+  color: #991b1b;
 }
 
 /* Hidden class for toggling section visibility */
 .hidden {
   display: none;
-} /* ==================================================
+}
+
+/* ==================================================
    RESPONSIVE DESIGN - Mobile and Tablet
    ================================================== */
+
 @media (max-width: 800px) {
+
   /* Stack sidebar and quiz on top of each other */
   .app-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Stack quiz header items vertically on mobile */
-  .quiz-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
   /* Adjust timer positioning on mobile */
   .timer-box {
-    margin-top: 8px;
-    align-self: flex-end;
-    min-width: 120px;
+    margin-bottom: 16px;
+  }
+
+  /* Make question inputs easier to use on smaller screens */
+  .question-input input[type="text"],
+  .question-row input[type="text"] {
+    max-width: 120px;
   }
 }
+```
+
