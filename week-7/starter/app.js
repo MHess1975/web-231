@@ -1,5 +1,10 @@
 "use strict";
+/*
+      Author:Mitchell Hess
+      Date:September 23, 2026
 
+      Filename: app.js
+ */
 // ============================================
 // Timed Practice Quiz Application
 // ============================================
@@ -88,13 +93,30 @@ quizSetup.addEventListener("submit", function (event) {
 function resetQuiz() {
   window.clearInterval(timerId);
   timeLeft = quizTime;
-  quizClock.value = timeLeft;
+  updateClock();
 
-  // Clear all question responses and error styling
+   // Clear all question responses and error styling
+   clearAnswers();
+   clearAnswerStyles();
+}
+
+// Clears all answer input fields
+function clearAnswers() {
   questionList.forEach((input) => {
     input.value = "";
+  });
+}
+
+// Removes incorrect answer styling from all input fields
+function clearAnswerStyles() {
+  questionList.forEach((input) => {
     input.classList.remove("wronganswer");
   });
+}
+
+// Updates the quiz clock display
+function updateClock() {
+  quizClock.value = timeLeft;
 }
 
 /**
@@ -109,7 +131,7 @@ function countdown() {
   } else {
     // Decrement time and update display
     timeLeft--;
-    quizClock.value = timeLeft;
+    updateClock();
   }
 }
 
