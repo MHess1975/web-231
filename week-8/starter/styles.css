@@ -1,5 +1,5 @@
 /*Author:Mitchell Hess
-      Date:September 23, 2026
+      Date:September 30, 2026
 
       Filename: styles.css
 
@@ -49,16 +49,21 @@ main {
 }
 
 /* Sidebar sections spacing */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .sidebar .setup-section,
 .sidebar .summary-section {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 /* Timer display box */
 .timer-box {
-  min-width: 140px;
-  margin-bottom: 16px;
-  padding: 14px 12px;
+  width: 100%;
+  padding: 16px 12px;
   text-align: center;
   border-radius: 12px;
   background: linear-gradient(180deg, #eef4ff 0%, #e6f0ff 100%);
@@ -175,12 +180,12 @@ button:hover {
 .questions-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 16px;
 }
 
 /* Question row wrapper */
 .question-row {
-  padding: 14px;
+  padding: 16px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background: #fafbfc;
@@ -191,7 +196,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
 }
 
 /* Question number label */
@@ -237,16 +242,19 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
-  /* Adjust timer positioning on mobile */
-  .timer-box {
-    margin-bottom: 16px;
+  /* Allow the sidebar sections to use the available width */
+  .sidebar {
+    width: 100%;
+  }
+
+  /* Keep question cards comfortable on smaller screens */
+  .question-row {
+    padding: 14px;
   }
 
   /* Make question inputs easier to use on smaller screens */
   .question-input input[type="text"],
   .question-row input[type="text"] {
-    max-width: 120px;
+    max-width: 160px;
   }
 }
-```
-
